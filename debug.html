@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>自适应网站</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .fullscreen-img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .fullscreen-img.zoomed {
+            transform: scale(1.5);
+        }
+    </style>
+</head>
+<body>
+    <img class="fullscreen-img" src="E:\desktop\1\img\image.jpg" alt="全屏图片">
+
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            var img = document.querySelector('.fullscreen-img');
+            var initialScale = 0.6;
+            var targetScale = 1.5;
+            var delay = 1000;
+
+            img.style.transform = 'scale(' + initialScale + ')';
+            img.addEventListener('click', toggleZoom);
+
+            function toggleZoom() {
+                img.classList.toggle('zoomed');
+                var scale = img.classList.contains('zoomed') ? targetScale : initialScale;
+                img.style.transform = 'scale(' + scale + ')';
+                if (scale === targetScale) {
+                    setTimeout(playSoundEffect, delay);
+                }
+            }
+
+            function playSoundEffect() {
+                var audio = new Audio('E:\desktop\1\music\sound-effect.mp3');
+                audio.play();
+            }
+        });
+    </script>
+</body>
+</html>
