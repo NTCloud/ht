@@ -2,7 +2,7 @@
 <html>
 <head>
     <audio id="myAudio" controls autoplay>
-        <source src="\music\sound-effect.mp3" type="audio/mpeg">
+        <source src="\music\audio.mp3" type="audio/mpeg">
         您的浏览器不支持音频播放。
     </audio>
     <script>
@@ -49,7 +49,7 @@
             var initialScale = 0.6;
             var targetScale = 1.5;
             var delay = 1000;
-            var audio = new Audio('E:1\music\sound-effect.mp3');
+            var audio = new Audio('\music\sound-effect.mp3');
 
             img.style.transform = 'scale(' + initialScale + ')';
             img.addEventListener('click', toggleZoom);
